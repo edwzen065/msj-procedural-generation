@@ -1,5 +1,5 @@
-v,r,ul,br,l
-b,b,x,h,l
-h,u,bl,ur,b
-ur,bl,n,v,ur
-v,ur,ul,r,b
+n,n,v,br,bl
+h,ul,v,ur,ul
+ul,l,x,b,r
+l,b,bl,ur,x
+l,u,h,x,bl

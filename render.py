@@ -10,7 +10,8 @@ with open("map.csv", mode='r') as file:
 
 sideL = len(game_map)
 
-tile_size = 8
+scale = 10
+tile_size = 8 * scale
 canvas_width = sideL * tile_size
 canvas_height = sideL * tile_size
 
@@ -21,12 +22,12 @@ image_cache = {}
 for row_i, row in enumerate(game_map):
     for col_i, tile in enumerate(row):
         if tile not in image_cache:
-            image_cache[tile] = Image.open(f"styleA/{tile}.png")
+            image_cache[tile] = Image.open(f"styleA/{tile}.png").resize((tile_size,tile_size))
 
         img = image_cache[tile]
 
-        x_pixel = col_i * sideL
-        y_pixel = row_i * sideL
+        x_pixel = col_i * tile_size
+        y_pixel = row_i * tile_size
 
         master_canvas.paste(img, (x_pixel, y_pixel))
 
