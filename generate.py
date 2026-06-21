@@ -1,4 +1,5 @@
 import random
+import csv
 
 sideL = 5
 # tiles = ["ul","h","ur","l","r","v","x","u","b","bl","br","o","n","q1","ih","iv","mu","ho","q2","ph","pv","s","pc"]
@@ -79,5 +80,9 @@ for i in range(10):
     selected = collapse(tiles)
     propagate(selected)
 
-for el in grid:
-    print(el)
+for i in range(sideL):
+    for j in range(sideL):
+        grid[i][j] = grid[i][j][0]
+
+with open("map.csv", "w") as f:
+    csv.writer(f).writerows(grid)
